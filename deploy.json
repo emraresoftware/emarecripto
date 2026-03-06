@@ -1,0 +1,22 @@
+{
+  "slug": "emarecripto",
+  "name": "Emare Cripto",
+  "github_repo": "emraresoftware/emarecripto",
+  "branch": "main",
+  "dc": "local",
+  "server_host": null,
+  "server_ssh_port": 22,
+  "remote_path": "/opt/emarecripto",
+  "stack": "python-gunicorn",
+  "port": 8307,
+  "domain": "",
+  "deploy_commands": [
+    "cd /opt/emarecripto",
+    "git pull origin main",
+    "source venv/bin/activate && pip install -r requirements.txt -q",
+    "sudo systemctl restart emarecripto"
+  ],
+  "restart_command": "systemctl status emarecripto --no-pager",
+  "auto_deploy_on_push": false,
+  "health_check_url": null
+}
